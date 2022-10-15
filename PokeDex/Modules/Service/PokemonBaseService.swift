@@ -31,7 +31,6 @@ class PokemonBaseService {
     func getPokemons(url:String, onSucces: @escaping(PokemonDetailModel) -> Void, onFail :@escaping(_ error: PokemonBaseApiError) -> Void){
         
         guard let safeUrl = URL(string: url) else {return}
-        let urlRequest = URLRequest(url: safeUrl)
         
         AF.request(safeUrl, method: .get, parameters: nil,encoding: URLEncoding(destination: .queryString), headers: nil).responseData { response in
             if(response.response?.statusCode == 200){

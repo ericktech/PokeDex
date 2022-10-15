@@ -14,6 +14,14 @@ class MainViewController: UINavigationController {
 
         // Do any additional setup after loading the view.
         self.navigationBar.prefersLargeTitles = true
+        let appearance = UINavigationBarAppearance(idiom: .phone)
+        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        appearance.backgroundColor = .red
+        navigationBar.standardAppearance = appearance
+        navigationBar.scrollEdgeAppearance = appearance
+
+
     }
     
 

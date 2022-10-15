@@ -18,12 +18,12 @@ class HomeViewController: UIViewController, HomeViewDelegate {
     private let presenter = HomewViewPresenter(pokemonBaseService: PokemonBaseService())
     
     @IBOutlet weak var collectionView: UICollectionView!
-    
+    private let spacing : CGFloat =  30
+    private let numberOfItemInARow : CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 4 :2
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "PokeDex"
-        
         self.presenter.setViewDelegate(delegate: self)
         
         config()
@@ -34,12 +34,9 @@ class HomeViewController: UIViewController, HomeViewDelegate {
         collectionView.dataSource =  self
         collectionView.delegate = self
         presenter.getPokemonBaseList()
+        collectionView.setCollectionViewLayout(createFlowLayout(), animated: true)
+        collectionView.backgroundColor = .black
         
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical //.horizontal
-        layout.minimumLineSpacing = 5
-        layout.minimumInteritemSpacing = 5
-        collectionView.setCollectionViewLayout(layout, animated: true)
     }
     
     
@@ -62,15 +59,23 @@ extension HomeViewController : UICollectionViewDataSource, UICollectionViewDeleg
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PokemonCollectionViewCell.identifier, for: indexPath) as! PokemonCollectionViewCell
         let safeData = pokemonList[indexPath.row]
-        cell.config(name: safeData.name , urlImg: safeData.sprites?.frontDefault)
+        cell.config(name: safeData.name , urlImg: safeData.sprites?.frontDefault, number: safeData.id?.description)
         return cell
         
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let lay = collectionViewLayout as! UICollectionViewFlowLayout
-        let widthPerItem = collectionView.frame.width / 2 - lay.minimumInteritemSpacing
+        let totalSpacing : CGFloat = spacing * (numberOfItemInARow + 1)
+        let itemWidth : CGFloat = (collectionView.bounds.width - totalSpacing) / numberOfItemInARow
+        return CGSize(width: itemWidth, height: itemWidth)
+    }
+    func createFlowLayout() -> UICollectionViewFlowLayout{
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical //.horizontal
+        layout.minimumLineSpacing = spacing
+        layout.minimumInteritemSpacing = spacing
+        layout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
+        return layout
         
-        return CGSize(width:widthPerItem, height:200)
     }
 }
 
