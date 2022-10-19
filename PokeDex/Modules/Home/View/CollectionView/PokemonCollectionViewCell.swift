@@ -19,21 +19,32 @@ class PokemonCollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
     
-    public func config(name:String?, urlImg: String?, number: String?){
-        configureCell()
-        if let safename = name {
-            self.lblName.text = safename
-        }
-        if let safeNumber = number {
-            self.lblNumber.text = "#\(safeNumber)"
-        }
-        imgView.loadFrom(URLAddress: urlImg)
+    public func config(pokemon: PokemonDetailModel?){
+        guard let safePokemon = pokemon else {return}
+        guard let safePokTypes = safePokemon.types else {return}
+        configureCell(safePokemon: safePokemon)
+        configureBackGrodunColorCell(pokeType: safePokTypes)
     }
     
-    func configureCell(){
+    func configureBackGrodunColorCell(pokeType: [Types]){
+        if let itemType = pokeType.first(where: {$0.slot == 1}){
+            contentView.backgroundColor = PokemonTypesColors(rawValue: itemType.type?.name ?? "unkwnow")?.getBackGroundColor()
+        }
+    }
+    
+    func configureCell(safePokemon :PokemonDetailModel){
+        
+        if let safeId = safePokemon.id{
+            self.lblNumber.text = "#\(safeId)"
+        }
+        
+        self.lblName.text = safePokemon.name
+        imgView.loadFrom(URLAddress: safePokemon.sprites?.frontDefault)
         contentView.layer.cornerRadius = 10.0;
-        contentView.backgroundColor = .systemTeal
         imgView.contentMode = .scaleAspectFill
     }
     
+    
 }
+
+

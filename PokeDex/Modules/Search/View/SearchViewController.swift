@@ -1,53 +1,55 @@
 //
-//  HomeViewController.swift
+//  SearchViewController.swift
 //  PokeDex
 //
-//  Created by Erick Leal on 14/10/22.
+//  Created by Erick Leal on 19/10/22.
 //
 
 import UIKit
-
-protocol HomeViewDelegate : NSObjectProtocol{
-    func getPokemonList(pokemonList: [PokemonDetailModel])
+protocol SearchViewDelegate : NSObjectProtocol{
+    func getPokemon(pokemonList: [PokemonDetailModel])
 }
+class SearchViewController: CustomViewController, SearchViewDelegate {
 
-class HomeViewController: CustomViewController, HomeViewDelegate {
-    
-    @IBOutlet weak var cvLayout: UICollectionViewFlowLayout!
-    private var pokemonList = [PokemonDetailModel]()
-    private let presenter = HomewViewPresenter(pokemonBaseService: PokemonBaseService())
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    private var pokemonList = [PokemonDetailModel]()
+    
+    private let presenter = SearchViewPresenter(pokemonBaseService: PokemonBaseService())
+    public var textToSearch : String = ""
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "PokeDex"
         self.presenter.setViewDelegate(delegate: self)
-        self.enableSerchBar()
         config()
     }
-    
     func config(){
         collectionView.register(UINib(nibName: PokemonCollectionViewCell.nib, bundle: nil), forCellWithReuseIdentifier: PokemonCollectionViewCell.identifier)
         collectionView.dataSource =  self
         collectionView.delegate = self
-        presenter.getPokemonBaseList()
+        presenter.getPokemonSearch(textToSearch: textToSearch)
         collectionView.setCollectionViewLayout(createFlowLayout(), animated: true)
         collectionView.backgroundColor = .black
         
     }
+    static func getViewController(textToSearch: String) -> SearchViewController{
+        let storyBoard = UIStoryboard(name: "SearchStoryboard", bundle: nil)
+        guard let controller = storyBoard.instantiateViewController(withIdentifier: "SearchViewController") as? SearchViewController else {
+            return SearchViewController()
+        }
+        controller.textToSearch = textToSearch
+        return controller
+    }
     
-    
-    func getPokemonList(pokemonList: [PokemonDetailModel]) {
+    func getPokemon(pokemonList: [PokemonDetailModel]) {
         self.pokemonList = pokemonList
         DispatchQueue.main.async {
             self.collectionView.reloadData()
         }
     }
-    
 }
-
-extension HomeViewController : UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
+extension SearchViewController : UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let safeCount = pokemonList.count
         return safeCount
@@ -78,7 +80,6 @@ extension HomeViewController : UICollectionViewDataSource, UICollectionViewDeleg
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let detailsVC = DetailsViewController.getViewController(pokemon: pokemonList[indexPath.row])
         self.pushViewController(vc: detailsVC)
-      
+        
     }
 }
-

@@ -6,6 +6,25 @@
 //
 import Foundation
 
+class PokemonByTypeModel: Codable {
+    var pokemon: [PokemonElement]?
+
+    init(pokemon: [PokemonElement]?) {
+        self.pokemon = pokemon
+    }
+}
+
+// MARK: - PokemonElement
+class PokemonElement: Codable {
+    var pokemon: ResultPokemonBaseModel?
+    var slot: Int?
+
+    init(pokemon: ResultPokemonBaseModel?, slot: Int?) {
+        self.pokemon = pokemon
+        self.slot = slot
+    }
+}
+
 class PokemonBaseModel: Codable {
     var count: Int?
     var next: String?

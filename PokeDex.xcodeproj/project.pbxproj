@@ -23,6 +23,16 @@
 		BB4384D628FA8025004C6FE4 /* PokemonCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB4384D428FA8025004C6FE4 /* PokemonCollectionViewCell.xib */; };
 		BB4384DB28FA8408004C6FE4 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4384DA28FA8408004C6FE4 /* Extension.swift */; };
 		BB4384DE28FA8F23004C6FE4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = BB4384DD28FA8F23004C6FE4 /* Alamofire */; };
+		BB6A472028FE01640094F7F6 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6A471F28FE01640094F7F6 /* Enum.swift */; };
+		BB6A472328FE23C00094F7F6 /* DetailsStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB6A472228FE23C00094F7F6 /* DetailsStoryBoard.storyboard */; };
+		BB6A472828FE279F0094F7F6 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6A472728FE279F0094F7F6 /* DetailsViewController.swift */; };
+		BBB1AEF828FF37C700E3EFCC /* CustomNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB1AEF728FF37C700E3EFCC /* CustomNavigationViewController.swift */; };
+		BBB1AEFA28FF394900E3EFCC /* CustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB1AEF928FF394900E3EFCC /* CustomViewController.swift */; };
+		BBB1AEFE28FF9AA700E3EFCC /* FSPagerView in Frameworks */ = {isa = PBXBuildFile; productRef = BBB1AEFD28FF9AA700E3EFCC /* FSPagerView */; };
+		BBB1AF0528FFD10300E3EFCC /* SearchStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBB1AF0428FFD10300E3EFCC /* SearchStoryboard.storyboard */; };
+		BBB1AF0728FFD52F00E3EFCC /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB1AF0628FFD52E00E3EFCC /* SearchViewController.swift */; };
+		BBB1AF0A28FFDBD500E3EFCC /* SearchViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB1AF0928FFDBD500E3EFCC /* SearchViewPresenter.swift */; };
+		BBB1AF0C28FFF1F200E3EFCC /* Constans.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB1AF0B28FFF1F200E3EFCC /* Constans.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +53,15 @@
 		BB4384D328FA8025004C6FE4 /* PokemonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCollectionViewCell.swift; sourceTree = "<group>"; };
 		BB4384D428FA8025004C6FE4 /* PokemonCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PokemonCollectionViewCell.xib; sourceTree = "<group>"; };
 		BB4384DA28FA8408004C6FE4 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		BB6A471F28FE01640094F7F6 /* Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
+		BB6A472228FE23C00094F7F6 /* DetailsStoryBoard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailsStoryBoard.storyboard; sourceTree = "<group>"; };
+		BB6A472728FE279F0094F7F6 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		BBB1AEF728FF37C700E3EFCC /* CustomNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationViewController.swift; sourceTree = "<group>"; };
+		BBB1AEF928FF394900E3EFCC /* CustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewController.swift; sourceTree = "<group>"; };
+		BBB1AF0428FFD10300E3EFCC /* SearchStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchStoryboard.storyboard; sourceTree = "<group>"; };
+		BBB1AF0628FFD52E00E3EFCC /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		BBB1AF0928FFDBD500E3EFCC /* SearchViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewPresenter.swift; sourceTree = "<group>"; };
+		BBB1AF0B28FFF1F200E3EFCC /* Constans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constans.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBB1AEFE28FF9AA700E3EFCC /* FSPagerView in Frameworks */,
 				BB4384DE28FA8F23004C6FE4 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -77,8 +97,8 @@
 			isa = PBXGroup;
 			children = (
 				BB2AAB8528F9DCE30030EAB2 /* Modules */,
-				BB2AAB6B28F9B8AA0030EAB2 /* AppDelegate.swift */,
 				BB2AAB6D28F9B8AA0030EAB2 /* SceneDelegate.swift */,
+				BB2AAB6B28F9B8AA0030EAB2 /* AppDelegate.swift */,
 				BB2AAB7728F9B8AE0030EAB2 /* Assets.xcassets */,
 				BB2AAB7928F9B8AE0030EAB2 /* LaunchScreen.storyboard */,
 				BB2AAB7C28F9B8AE0030EAB2 /* Info.plist */,
@@ -90,10 +110,12 @@
 		BB2AAB8528F9DCE30030EAB2 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				BBB1AF0228FFD0D000E3EFCC /* Search */,
 				BB4384D728FA83CE004C6FE4 /* Utils */,
 				BB2AAB9528FA09380030EAB2 /* Service */,
 				BB2AAB9228FA086B0030EAB2 /* Models */,
 				BB2AAB8628F9DCEC0030EAB2 /* Home */,
+				BB6A472128FE23740094F7F6 /* Details */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -156,8 +178,55 @@
 			isa = PBXGroup;
 			children = (
 				BB4384DA28FA8408004C6FE4 /* Extension.swift */,
+				BB6A471F28FE01640094F7F6 /* Enum.swift */,
+				BBB1AEF728FF37C700E3EFCC /* CustomNavigationViewController.swift */,
+				BBB1AEF928FF394900E3EFCC /* CustomViewController.swift */,
+				BBB1AF0B28FFF1F200E3EFCC /* Constans.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		BB6A472128FE23740094F7F6 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				BB6A472428FE25E30094F7F6 /* View */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
+		BB6A472428FE25E30094F7F6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BB6A472228FE23C00094F7F6 /* DetailsStoryBoard.storyboard */,
+				BB6A472728FE279F0094F7F6 /* DetailsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BBB1AF0228FFD0D000E3EFCC /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				BBB1AF0828FFDBC000E3EFCC /* Presenter */,
+				BBB1AF0328FFD0EC00E3EFCC /* View */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		BBB1AF0328FFD0EC00E3EFCC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BBB1AF0428FFD10300E3EFCC /* SearchStoryboard.storyboard */,
+				BBB1AF0628FFD52E00E3EFCC /* SearchViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BBB1AF0828FFDBC000E3EFCC /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				BBB1AF0928FFDBD500E3EFCC /* SearchViewPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,6 +247,7 @@
 			name = PokeDex;
 			packageProductDependencies = (
 				BB4384DD28FA8F23004C6FE4 /* Alamofire */,
+				BBB1AEFD28FF9AA700E3EFCC /* FSPagerView */,
 			);
 			productName = PokeDex;
 			productReference = BB2AAB6828F9B8AA0030EAB2 /* PokeDex.app */;
@@ -209,6 +279,7 @@
 			mainGroup = BB2AAB5F28F9B8AA0030EAB2;
 			packageReferences = (
 				BB4384DC28FA8F23004C6FE4 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				BBB1AEFC28FF9AA700E3EFCC /* XCRemoteSwiftPackageReference "FSPagerView" */,
 			);
 			productRefGroup = BB2AAB6928F9B8AA0030EAB2 /* Products */;
 			projectDirPath = "";
@@ -226,8 +297,10 @@
 			files = (
 				BB2AAB7B28F9B8AE0030EAB2 /* LaunchScreen.storyboard in Resources */,
 				BB2AAB7828F9B8AE0030EAB2 /* Assets.xcassets in Resources */,
+				BB6A472328FE23C00094F7F6 /* DetailsStoryBoard.storyboard in Resources */,
 				BB4384D628FA8025004C6FE4 /* PokemonCollectionViewCell.xib in Resources */,
 				BB2AAB7328F9B8AA0030EAB2 /* Main.storyboard in Resources */,
+				BBB1AF0528FFD10300E3EFCC /* SearchStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,7 +311,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB6A472028FE01640094F7F6 /* Enum.swift in Sources */,
 				BB2AAB9728FA096F0030EAB2 /* PokemonBaseService.swift in Sources */,
+				BBB1AF0C28FFF1F200E3EFCC /* Constans.swift in Sources */,
 				BB2AAB8E28F9E76A0030EAB2 /* HomeViewController.swift in Sources */,
 				BB2AAB7628F9B8AB0030EAB2 /* PokeDex.xcdatamodeld in Sources */,
 				BB2AAB6C28F9B8AA0030EAB2 /* AppDelegate.swift in Sources */,
@@ -246,8 +321,13 @@
 				BB2AAB9C28FA45830030EAB2 /* PokemonDetailModel.swift in Sources */,
 				BB2AAB9A28FA0F570030EAB2 /* HomeViewPresenter.swift in Sources */,
 				BB2AAB6E28F9B8AA0030EAB2 /* SceneDelegate.swift in Sources */,
+				BBB1AEF828FF37C700E3EFCC /* CustomNavigationViewController.swift in Sources */,
+				BBB1AF0A28FFDBD500E3EFCC /* SearchViewPresenter.swift in Sources */,
+				BBB1AF0728FFD52F00E3EFCC /* SearchViewController.swift in Sources */,
 				BB2AAB8C28F9E6D10030EAB2 /* MainViewController.swift in Sources */,
 				BB4384D528FA8025004C6FE4 /* PokemonCollectionViewCell.swift in Sources */,
+				BBB1AEFA28FF394900E3EFCC /* CustomViewController.swift in Sources */,
+				BB6A472828FE279F0094F7F6 /* DetailsViewController.swift in Sources */,
 				BB2AAB9428FA08AA0030EAB2 /* PokemonBaseModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -476,6 +556,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		BBB1AEFC28FF9AA700E3EFCC /* XCRemoteSwiftPackageReference "FSPagerView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/WenchaoD/FSPagerView";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -483,6 +571,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BB4384DC28FA8F23004C6FE4 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		BBB1AEFD28FF9AA700E3EFCC /* FSPagerView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BBB1AEFC28FF9AA700E3EFCC /* XCRemoteSwiftPackageReference "FSPagerView" */;
+			productName = FSPagerView;
 		};
 /* End XCSwiftPackageProductDependency section */
 

@@ -8,24 +8,29 @@
 import Foundation
 import Alamofire
 class PokemonBaseService {
-    var urlSession : URLSession
     private let apiBaseURL = "https://pokeapi.co/api/v2/pokemon/"
-    init(){
-        urlSession = URLSession(configuration: URLSessionConfiguration.default)
+    private let apiByType = "https://pokeapi.co/api/v2/type/"
+    
+    
+    func getPokemonBySearch(textToSearch:String, onSucces: @escaping([PokemonDetailModel]) -> Void, onFail :@escaping(_ error: PokemonBaseApiError) -> Void){
+        let url = apiBaseURL + textToSearch.lowercased()
+        AF.request(url, method: .get,parameters: nil,encoding: URLEncoding(destination: .queryString),headers: nil).responseData{ response in
+            if(response.response?.statusCode == 200){
+                do{
+                    if let data = response.data{
+                        let responseModel = try JSONDecoder().decode(PokemonDetailModel.self, from: data)
+                        var pokemonList = [PokemonDetailModel]()
+                        pokemonList.append(responseModel)
+                        onSucces(pokemonList)
+                    }
+                }catch{
+                    onFail(.noData)
+                }
+            }else{onFail(.noData)}
+        }
     }
-    func getList(completion : @escaping(_ response : PokemonBaseModel) -> Void, onFail: @escaping(_ error: PokemonBaseApiError) -> Void){
-        guard let safeUrl = URL(string: apiBaseURL) else {return}
-        let urlRequest = URLRequest(url: safeUrl)
-        urlSession.dataTask(with: urlRequest){data, response, error in
-            let jsonDecoder = JSONDecoder()
-            
-            let response = try? jsonDecoder.decode(PokemonBaseModel.self, from: data ?? Data())
-            guard let safeResponse = response else {return onFail(.noData)}
-            
-            
-            completion(safeResponse)
-        }.resume()
-    }
+    
+    
     
     
     func getPokemons(url:String, onSucces: @escaping(PokemonDetailModel) -> Void, onFail :@escaping(_ error: PokemonBaseApiError) -> Void){
@@ -43,6 +48,40 @@ class PokemonBaseService {
                     print(String(describing: error))
                     onFail(.canNotProcessData)}
             }else{onFail(.noData)}
+        }
+    }
+    
+    func getPokemonByType(typeToSerach:String,completion : @escaping(_ response: [PokemonDetailModel]) -> Void, onFail :@escaping(_ error: PokemonBaseApiError) -> Void){
+        let url = apiByType + typeToSerach.lowercased()
+        AF.request(url, method: .get, parameters: nil, encoding: URLEncoding(destination: .queryString), headers: nil).responseData{response in
+            if(response.response?.statusCode == 200){
+                do{
+                    if let data = response.data{
+                        let responseModel = try JSONDecoder().decode(PokemonByTypeModel.self, from: data)
+                        var pokemonList = [PokemonDetailModel]()
+                        let myGroup = DispatchGroup()
+                        responseModel.pokemon?.forEach{item in
+                            myGroup.enter()
+                            guard let safeUrl = item.pokemon?.url else {return}
+                            self.getPokemons(url: safeUrl, onSucces: {response in
+                                pokemonList.append(response)
+                                myGroup.leave()
+                                
+                            }, onFail: {error in
+                                myGroup.leave()
+                            })
+                            
+                            myGroup.notify(queue: .main) {
+                                completion(pokemonList)
+                            }
+                        }
+                    }else{
+                        onFail(.noData)
+                    }
+                }catch {
+                    onFail(.noData)
+                }
+            }
         }
     }
     
@@ -64,7 +103,6 @@ class PokemonBaseService {
                                 myGroup.leave()
                                 
                             }, onFail: {error in
-                                print(error)
                                 myGroup.leave()
                             })
                         }
