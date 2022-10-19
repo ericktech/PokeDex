@@ -6,27 +6,31 @@
 //
 
 import UIKit
-
+import SkeletonView
 protocol HomeViewDelegate : NSObjectProtocol{
     func getPokemonList(pokemonList: [PokemonDetailModel])
 }
 
 class HomeViewController: CustomViewController, HomeViewDelegate {
-    
     @IBOutlet weak var cvLayout: UICollectionViewFlowLayout!
     private var pokemonList = [PokemonDetailModel]()
     private let presenter = HomewViewPresenter(pokemonBaseService: PokemonBaseService())
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+
+    @IBOutlet weak var skltnView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "PokeDex"
+        Skltn()
         self.presenter.setViewDelegate(delegate: self)
         self.enableSerchBar()
         config()
     }
-    
+    func Skltn(){
+        skltnView.showGradientSkeleton(delay: 0.5)
+    }
     func config(){
         collectionView.register(UINib(nibName: PokemonCollectionViewCell.nib, bundle: nil), forCellWithReuseIdentifier: PokemonCollectionViewCell.identifier)
         collectionView.dataSource =  self
@@ -37,10 +41,15 @@ class HomeViewController: CustomViewController, HomeViewDelegate {
         
     }
     
-    
+    func hideSktln(){
+        collectionView.isHidden = false
+        skltnView.hideSkeleton()
+        skltnView.isHidden = true
+    }
     func getPokemonList(pokemonList: [PokemonDetailModel]) {
         self.pokemonList = pokemonList
         DispatchQueue.main.async {
+            self.hideSktln()
             self.collectionView.reloadData()
         }
     }

@@ -6,12 +6,13 @@
 //
 
 import UIKit
+import SkeletonView
 protocol SearchViewDelegate : NSObjectProtocol{
     func getPokemon(pokemonList: [PokemonDetailModel])
 }
 class SearchViewController: CustomViewController, SearchViewDelegate {
 
-    
+    @IBOutlet weak var skltnView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     
     private var pokemonList = [PokemonDetailModel]()
@@ -23,6 +24,17 @@ class SearchViewController: CustomViewController, SearchViewDelegate {
         super.viewDidLoad()
         self.presenter.setViewDelegate(delegate: self)
         config()
+        Skltn()
+    }
+    
+    func Skltn(){
+        collectionView.isHidden = true
+        skltnView.showGradientSkeleton(delay: 0.5)
+    }
+    func hideSktln(){
+        collectionView.isHidden = false
+        skltnView.hideSkeleton()
+        skltnView.isHidden = true
     }
     func config(){
         collectionView.register(UINib(nibName: PokemonCollectionViewCell.nib, bundle: nil), forCellWithReuseIdentifier: PokemonCollectionViewCell.identifier)
@@ -46,6 +58,7 @@ class SearchViewController: CustomViewController, SearchViewDelegate {
         self.pokemonList = pokemonList
         DispatchQueue.main.async {
             self.collectionView.reloadData()
+            self.hideSktln()
         }
     }
 }

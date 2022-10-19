@@ -19,6 +19,8 @@ class CustomViewController: UIViewController, UISearchBarDelegate {
     func enableSerchBar(){
         searchBarController.searchBar.delegate = self
         navigationItem.searchController = searchBarController
+        searchBarController.searchBar.tintColor = .white
+
 
     }
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {

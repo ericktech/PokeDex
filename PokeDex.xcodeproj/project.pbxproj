@@ -21,11 +21,12 @@
 		BB2AAB9C28FA45830030EAB2 /* PokemonDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2AAB9B28FA45820030EAB2 /* PokemonDetailModel.swift */; };
 		BB4384D528FA8025004C6FE4 /* PokemonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4384D328FA8025004C6FE4 /* PokemonCollectionViewCell.swift */; };
 		BB4384D628FA8025004C6FE4 /* PokemonCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB4384D428FA8025004C6FE4 /* PokemonCollectionViewCell.xib */; };
-		BB4384DB28FA8408004C6FE4 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4384DA28FA8408004C6FE4 /* Extension.swift */; };
+		BB4384DB28FA8408004C6FE4 /* UIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4384DA28FA8408004C6FE4 /* UIExtension.swift */; };
 		BB4384DE28FA8F23004C6FE4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = BB4384DD28FA8F23004C6FE4 /* Alamofire */; };
 		BB6A472028FE01640094F7F6 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6A471F28FE01640094F7F6 /* Enum.swift */; };
 		BB6A472328FE23C00094F7F6 /* DetailsStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB6A472228FE23C00094F7F6 /* DetailsStoryBoard.storyboard */; };
 		BB6A472828FE279F0094F7F6 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6A472728FE279F0094F7F6 /* DetailsViewController.swift */; };
+		BBB10A8C29008EEB00B9C94D /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = BBB10A8B29008EEB00B9C94D /* SkeletonView */; };
 		BBB1AEF828FF37C700E3EFCC /* CustomNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB1AEF728FF37C700E3EFCC /* CustomNavigationViewController.swift */; };
 		BBB1AEFA28FF394900E3EFCC /* CustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB1AEF928FF394900E3EFCC /* CustomViewController.swift */; };
 		BBB1AEFE28FF9AA700E3EFCC /* FSPagerView in Frameworks */ = {isa = PBXBuildFile; productRef = BBB1AEFD28FF9AA700E3EFCC /* FSPagerView */; };
@@ -52,7 +53,7 @@
 		BB2AAB9B28FA45820030EAB2 /* PokemonDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailModel.swift; sourceTree = "<group>"; };
 		BB4384D328FA8025004C6FE4 /* PokemonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCollectionViewCell.swift; sourceTree = "<group>"; };
 		BB4384D428FA8025004C6FE4 /* PokemonCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PokemonCollectionViewCell.xib; sourceTree = "<group>"; };
-		BB4384DA28FA8408004C6FE4 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		BB4384DA28FA8408004C6FE4 /* UIExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExtension.swift; sourceTree = "<group>"; };
 		BB6A471F28FE01640094F7F6 /* Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
 		BB6A472228FE23C00094F7F6 /* DetailsStoryBoard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailsStoryBoard.storyboard; sourceTree = "<group>"; };
 		BB6A472728FE279F0094F7F6 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +71,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBB1AEFE28FF9AA700E3EFCC /* FSPagerView in Frameworks */,
+				BBB10A8C29008EEB00B9C94D /* SkeletonView in Frameworks */,
 				BB4384DE28FA8F23004C6FE4 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -110,12 +112,12 @@
 		BB2AAB8528F9DCE30030EAB2 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				BBB1AF0228FFD0D000E3EFCC /* Search */,
 				BB4384D728FA83CE004C6FE4 /* Utils */,
 				BB2AAB9528FA09380030EAB2 /* Service */,
 				BB2AAB9228FA086B0030EAB2 /* Models */,
 				BB2AAB8628F9DCEC0030EAB2 /* Home */,
 				BB6A472128FE23740094F7F6 /* Details */,
+				BBB1AF0228FFD0D000E3EFCC /* Search */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -132,7 +134,6 @@
 		BB2AAB8A28F9DD2D0030EAB2 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BB2AAB8F28F9E8790030EAB2 /* CollectionView */,
 				BB2AAB7128F9B8AA0030EAB2 /* Main.storyboard */,
 				BB2AAB8B28F9E6D10030EAB2 /* MainViewController.swift */,
 				BB2AAB8D28F9E76A0030EAB2 /* HomeViewController.swift */,
@@ -177,10 +178,10 @@
 		BB4384D728FA83CE004C6FE4 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				BB4384DA28FA8408004C6FE4 /* Extension.swift */,
+				BBB10A89290087D500B9C94D /* CustomViewControllers */,
+				BBB10A882900878900B9C94D /* Reusables */,
+				BB4384DA28FA8408004C6FE4 /* UIExtension.swift */,
 				BB6A471F28FE01640094F7F6 /* Enum.swift */,
-				BBB1AEF728FF37C700E3EFCC /* CustomNavigationViewController.swift */,
-				BBB1AEF928FF394900E3EFCC /* CustomViewController.swift */,
 				BBB1AF0B28FFF1F200E3EFCC /* Constans.swift */,
 			);
 			path = Utils;
@@ -201,6 +202,23 @@
 				BB6A472728FE279F0094F7F6 /* DetailsViewController.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		BBB10A882900878900B9C94D /* Reusables */ = {
+			isa = PBXGroup;
+			children = (
+				BB2AAB8F28F9E8790030EAB2 /* CollectionView */,
+			);
+			path = Reusables;
+			sourceTree = "<group>";
+		};
+		BBB10A89290087D500B9C94D /* CustomViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				BBB1AEF728FF37C700E3EFCC /* CustomNavigationViewController.swift */,
+				BBB1AEF928FF394900E3EFCC /* CustomViewController.swift */,
+			);
+			path = CustomViewControllers;
 			sourceTree = "<group>";
 		};
 		BBB1AF0228FFD0D000E3EFCC /* Search */ = {
@@ -248,6 +266,7 @@
 			packageProductDependencies = (
 				BB4384DD28FA8F23004C6FE4 /* Alamofire */,
 				BBB1AEFD28FF9AA700E3EFCC /* FSPagerView */,
+				BBB10A8B29008EEB00B9C94D /* SkeletonView */,
 			);
 			productName = PokeDex;
 			productReference = BB2AAB6828F9B8AA0030EAB2 /* PokeDex.app */;
@@ -280,6 +299,7 @@
 			packageReferences = (
 				BB4384DC28FA8F23004C6FE4 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				BBB1AEFC28FF9AA700E3EFCC /* XCRemoteSwiftPackageReference "FSPagerView" */,
+				BBB10A8A29008EEB00B9C94D /* XCRemoteSwiftPackageReference "SkeletonView" */,
 			);
 			productRefGroup = BB2AAB6928F9B8AA0030EAB2 /* Products */;
 			projectDirPath = "";
@@ -317,7 +337,7 @@
 				BB2AAB8E28F9E76A0030EAB2 /* HomeViewController.swift in Sources */,
 				BB2AAB7628F9B8AB0030EAB2 /* PokeDex.xcdatamodeld in Sources */,
 				BB2AAB6C28F9B8AA0030EAB2 /* AppDelegate.swift in Sources */,
-				BB4384DB28FA8408004C6FE4 /* Extension.swift in Sources */,
+				BB4384DB28FA8408004C6FE4 /* UIExtension.swift in Sources */,
 				BB2AAB9C28FA45830030EAB2 /* PokemonDetailModel.swift in Sources */,
 				BB2AAB9A28FA0F570030EAB2 /* HomeViewPresenter.swift in Sources */,
 				BB2AAB6E28F9B8AA0030EAB2 /* SceneDelegate.swift in Sources */,
@@ -556,6 +576,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		BBB10A8A29008EEB00B9C94D /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Juanpe/SkeletonView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		BBB1AEFC28FF9AA700E3EFCC /* XCRemoteSwiftPackageReference "FSPagerView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/WenchaoD/FSPagerView";
@@ -571,6 +599,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BB4384DC28FA8F23004C6FE4 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		BBB10A8B29008EEB00B9C94D /* SkeletonView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BBB10A8A29008EEB00B9C94D /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			productName = SkeletonView;
 		};
 		BBB1AEFD28FF9AA700E3EFCC /* FSPagerView */ = {
 			isa = XCSwiftPackageProductDependency;

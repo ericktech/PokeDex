@@ -14,6 +14,7 @@ class DetailsViewController: CustomViewController {
     var pagerView = FSPagerView()
     var pagercontrol : FSPageControl!
     
+    @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var stastStkView: UIStackView!
     @IBOutlet weak var ribbonStckView: UIStackView!
     @IBOutlet weak var viewMain: UIView!
@@ -52,15 +53,16 @@ class DetailsViewController: CustomViewController {
             let label = UILabel()
             guard let safeName = item.stat?.name else {return}
             label.text = PokemonStatName(rawValue: safeName.replacingOccurrences(of: "-", with: ""))?.getShortName()
-            label.textColor = .black
+            label.textColor = .white
             let progresView = UIProgressView()
             progresView.transform = progresView.transform.scaledBy(x: 1, y: 5)
             guard let safeBaseStat = item.baseStat else {return}
             progresView.setProgress(Float(Double(safeBaseStat) / 270), animated: true)
             progresView.progressTintColor = .red
+            progresView.trackTintColor = .white
             let statLabel = UILabel()
             statLabel.text = "\(safeBaseStat.description)/270"
-            statLabel.textColor = .black
+            statLabel.textColor = .white
             
             let verticakStck = UIStackView(arrangedSubviews: [label,progresView,statLabel])
             verticakStck.alignment = .center
@@ -103,7 +105,11 @@ class DetailsViewController: CustomViewController {
             self.viewMain.backgroundColor = safeColor
             
         }
-        self.setTitle(title: pokemon.name ?? "")
+        guard let safename = pokemon.name else {return}
+        self.setTitle(title: safename)
+        guard let safeId = pokemon.id else {return}
+
+        self.lblName.text = "\(safename.capitalized) - #\(safeId)"
         viewMain.roundCorners([.bottomLeft,.bottomRight], radius: 20)
     }
     

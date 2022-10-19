@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+
 enum PokemonTypesColors : String{
     case normal
     case fighting
@@ -55,6 +56,7 @@ enum PokemonTypesColors : String{
     }
     
 }
+
 enum PokemonStatName : String{
     case hp
     case attack

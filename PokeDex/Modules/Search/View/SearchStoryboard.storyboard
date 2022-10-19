@@ -38,18 +38,30 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8SI-h2-vC3">
+                                <rect key="frame" x="0.0" y="47" width="390" height="763"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="XPx-bX-Qrz" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="EaA-CC-IWt"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="8SI-h2-vC3" secondAttribute="bottom" id="FrL-oH-6xO"/>
                             <constraint firstItem="XPx-bX-Qrz" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Gnm-gl-iD2"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="8SI-h2-vC3" secondAttribute="trailing" id="KXu-2Y-ey8"/>
+                            <constraint firstItem="8SI-h2-vC3" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="MoV-XS-cna"/>
+                            <constraint firstItem="8SI-h2-vC3" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="flN-PD-e6c"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="XPx-bX-Qrz" secondAttribute="bottom" id="pO8-Cf-YQG"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="XPx-bX-Qrz" secondAttribute="trailing" id="vvg-ia-6d1"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="XPx-bX-Qrz" id="Z7c-TN-Jjz"/>
+                        <outlet property="skltnView" destination="8SI-h2-vC3" id="Sgf-fW-Sa3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

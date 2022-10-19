@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9ST-3x-kVM">
+                            <collectionView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9ST-3x-kVM">
                                 <rect key="frame" x="0.0" y="91" width="390" height="719"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NWz-8k-a9f">
@@ -28,13 +28,24 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CIE-Hd-pzo">
+                                <rect key="frame" x="0.0" y="91" width="390" height="719"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="9ST-3x-kVM" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="8dt-ql-3eJ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9ST-3x-kVM" secondAttribute="trailing" id="LGp-Kn-i3l"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CIE-Hd-pzo" secondAttribute="trailing" id="MyX-4J-X5D"/>
+                            <constraint firstItem="CIE-Hd-pzo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="NNt-xW-xbO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="CIE-Hd-pzo" secondAttribute="bottom" id="Yl1-Bd-0gA"/>
                             <constraint firstItem="9ST-3x-kVM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="rG9-eo-rYb"/>
+                            <constraint firstItem="CIE-Hd-pzo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="uYR-i7-Lu6"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="9ST-3x-kVM" secondAttribute="bottom" id="zK1-JP-n03"/>
                         </constraints>
                     </view>
@@ -42,6 +53,7 @@
                     <connections>
                         <outlet property="collectionView" destination="9ST-3x-kVM" id="S1Y-cd-RsW"/>
                         <outlet property="cvLayout" destination="NWz-8k-a9f" id="jtW-Rt-2re"/>
+                        <outlet property="skltnView" destination="CIE-Hd-pzo" id="UzO-hz-9sQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

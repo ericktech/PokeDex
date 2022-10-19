@@ -41,7 +41,7 @@ class PokemonCollectionViewCell: UICollectionViewCell {
         self.lblName.text = safePokemon.name
         imgView.loadFrom(URLAddress: safePokemon.sprites?.frontDefault)
         contentView.layer.cornerRadius = 10.0;
-        imgView.contentMode = .scaleAspectFill
+        imgView.contentMode = .scaleAspectFit
     }
     
     

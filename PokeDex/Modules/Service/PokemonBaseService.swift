@@ -8,12 +8,9 @@
 import Foundation
 import Alamofire
 class PokemonBaseService {
-    private let apiBaseURL = "https://pokeapi.co/api/v2/pokemon/"
-    private let apiByType = "https://pokeapi.co/api/v2/type/"
-    
     
     func getPokemonBySearch(textToSearch:String, onSucces: @escaping([PokemonDetailModel]) -> Void, onFail :@escaping(_ error: PokemonBaseApiError) -> Void){
-        let url = apiBaseURL + textToSearch.lowercased()
+        let url = Constants.share.piBaseURL + textToSearch.lowercased()
         AF.request(url, method: .get,parameters: nil,encoding: URLEncoding(destination: .queryString),headers: nil).responseData{ response in
             if(response.response?.statusCode == 200){
                 do{
@@ -52,7 +49,7 @@ class PokemonBaseService {
     }
     
     func getPokemonByType(typeToSerach:String,completion : @escaping(_ response: [PokemonDetailModel]) -> Void, onFail :@escaping(_ error: PokemonBaseApiError) -> Void){
-        let url = apiByType + typeToSerach.lowercased()
+        let url = Constants.share.apiByType + typeToSerach.lowercased()
         AF.request(url, method: .get, parameters: nil, encoding: URLEncoding(destination: .queryString), headers: nil).responseData{response in
             if(response.response?.statusCode == 200){
                 do{
@@ -87,7 +84,7 @@ class PokemonBaseService {
     
     func getPokemonList(completion : @escaping(_ response: [PokemonDetailModel]) -> Void, onFail :@escaping(_ error: PokemonBaseApiError) -> Void){
         
-        AF.request(apiBaseURL, method: .get, parameters: nil, encoding: URLEncoding(destination: .queryString), headers: nil).responseData{response in
+        AF.request(Constants.share.piBaseURL, method: .get, parameters: nil, encoding: URLEncoding(destination: .queryString), headers: nil).responseData{response in
             if(response.response?.statusCode == 200){
                 do{
                     if let data = response.data{
